@@ -1,3 +1,7 @@
+.home_head_wrap {
+  border: 1px solid blue;
+}
+
 .heading2Xl {
   font-size: 2.5rem;
   line-height: 1.2;
@@ -41,10 +45,18 @@
   list-style: none;
   padding: 0;
   margin: 0;
+  display: flex;
+  border: 1px solid orange;
 }
 
 .listItem {
-  margin: 0 0 1.25rem;
+  margin: 0 0.6rem 1.25rem;
+  border: 1px solid yellow;
+}
+
+.list_image {
+  width: 200px;
+  height: 200px;
 }
 
 .lightText {
