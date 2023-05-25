@@ -47,6 +47,7 @@
   margin: 0;
   display: flex;
   border: 1px solid orange;
+  overflow: hidden;
 }
 
 .listItem {

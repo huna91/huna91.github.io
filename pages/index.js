@@ -7,21 +7,37 @@ import Date from "../components/date";
 import Image from "next/image";
 
 export default function Home({ allPostsData }) {
+  const contact_data = [
+    { image: "", title: "블록체인" },
+    { image: "", title: "목소리 " },
+    { image: "", title: "이메일" },
+    { image: "", title: "휴대폰" },
+    { image: "", title: "" },
+  ];
   return (
     <Layout home>
       <Head>
         <title>{siteTitle}</title>
       </Head>
       <section className={utilStyles.headingMd}>
-        <p>안녕하세요. 프론트엔드 개발자 윤하영 입니다.</p>
-        <p>
+        <p>개발자 윤하영 입니다.</p>
+        {/* <p>
           (This is a sample website - you’ll be building a site like this in{" "}
           <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
-        </p>
+        </p> */}
       </section>
       <section>
         <h2 className={utilStyles.headingLg}>Contact</h2>
-        <ul></ul>
+        <ul>
+          {contact_data.map(({ image, title }) => {
+            <li className={`${utilStyles.listItem}`}>
+              <Link>
+                <Image />
+                {title}
+              </Link>
+            </li>;
+          })}
+        </ul>
       </section>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Blog</h2>
