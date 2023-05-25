@@ -6,14 +6,14 @@ import styles from "./layout.module.css";
 import utilStyles from "../styles/utils.module.css";
 import Link from "next/link";
 
-const name = "Huna91";
-export const siteTitle = "Next.js Sample Website";
+const name = "Huna";
+export const siteTitle = "Huna Int";
 
 export default function Layout({ children, home }) {
   return (
     <div className={styles.container}>
       <Head>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/logo/logo_head.png" />
         <meta
           name="description"
           content="Learn how to build a personal website using Next.js"
