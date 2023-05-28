@@ -41,7 +41,37 @@
   padding-top: 1px;
 }
 
-.list {
+.contact_list {
+  /* border: 1px solid red; */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  width: auto;
+  height: 100px;
+  justify-content: center;
+}
+
+.contact_listItem {
+  margin: 0 1rem 1.25rem;
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset -10px -10px 18px 0px rgba(255, 255, 255, 0.64),
+    inset 7px 7px 15px 0px rgba(13, 39, 80, 0.16);
+  /* border: 1px solid orange; */
+}
+.contact_image {
+  max-width: 50px;
+  max-height: 50px;
+  object-fit: contain;
+  margin: 25px;
+}
+
+.contents_list {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -50,12 +80,12 @@
   overflow: hidden;
 }
 
-.listItem {
+.contents_listItem {
   margin: 0 0.6rem 1.25rem;
   border: 1px solid yellow;
 }
 
-.list_image {
+.contents_listImage {
   width: 200px;
   height: 200px;
 }
