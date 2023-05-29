@@ -4,7 +4,7 @@ const dot = require("dotenv").config();
 const config = {
   email: {
     id: process.env.EMAIL_ID,
-    pw: process.env.EMAIL_APP_PASSWORD,
+    pw: process.env.EMAIL_PW,
   },
 };
 
