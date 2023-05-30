@@ -2,6 +2,7 @@ import utilStyles from "../../styles/utils.module.css";
 import { useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Mail_input, Mail_Ul, Mail_Li, Mail_btn } from "../../styles/styledCom";
+import { cache } from "react";
 
 const emails = [
   "@naver.com",
@@ -30,7 +31,6 @@ const Email = () => {
       setEmailList(
         emails.filter((el) => el.includes(e.target.value.split("@")[1]))
       );
-      console.log(emailList);
     } else {
       setDrop(false);
       setKeyB(-1);
@@ -115,7 +115,7 @@ const Email = () => {
         <Mail_btn
           able={mailCheck}
           onClick={() => {
-            console.log("ddd");
+            send_mail(_add);
           }}
         >
           메일 전송
@@ -125,11 +125,24 @@ const Email = () => {
   );
 };
 
+// const send_mail = cache(async (email_add) => {
+//   const res = await fetch(`../api/hello`, { method: "POST", body: email_add });
+//   return res.json();
+// });
 async function send_mail(email_add) {
+  // console.log(email_add);
   const _data = new FormData();
   _data.append("email_address", email_add);
-  const res = await fetch(`../api/hello`, { query: email_add });
-  return res.json();
+
+  const _res = await fetch(`../api/mail_test`, {
+    method: "POST",
+    body: _data,
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  });
+
+  return "";
 }
 
 export default Email;
