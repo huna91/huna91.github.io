@@ -1,6 +1,6 @@
 ---
-title: "테스트트트트"
-date: "2022-05-13"
+title: "페이지 개발 내용"
+date: "2022-05-30"
 ---
 
 오호호호호호호호pre-rendering: **Static Generation** and **Server-side Rendering**. The difference is in **when** it generates the HTML for a page.
