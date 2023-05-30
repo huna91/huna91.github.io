@@ -125,15 +125,26 @@ const Email = () => {
   );
 };
 
-// const send_mail = cache(async (email_add) => {
-//   const res = await fetch(`../api/hello`, { method: "POST", body: email_add });
-//   return res.json();
-// });
+// async function send_mail(email_add) {
+//   const _data = new FormData();
+//   _data.append("email_address", email_add);
+
+//   const _res = await fetch(`../api/mail_test`, {
+//     method: "POST",
+//     body: _data,
+//     headers: {
+//       "Content-Type": "multipart/form-data",
+//     },
+//   });
+
+//   return "";
+// }
 async function send_mail(email_add) {
-  // console.log(email_add);
   const _data = new FormData();
   _data.append("email_address", email_add);
-
+  // for (let value of _data.values()) {
+  //   console.log(value);
+  // }
   const _res = await fetch(`../api/mail_test`, {
     method: "POST",
     body: _data,
@@ -142,7 +153,8 @@ async function send_mail(email_add) {
     },
   });
 
-  return "";
+  // const result = await _res.ok();
+  // console.log(result);
 }
 
 export default Email;
