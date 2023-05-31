@@ -15,10 +15,10 @@ const Mail_Li = styled.li`
 `;
 
 const Mail_btn = styled.button`
-  opacity: ${({ able }) => (able ? 1 : 0.6)};
-  background-color: ${({ able }) => (able ? "blue" : "grey")};
   cursor: pointer;
 `;
+/* opacity: ${({ able }) => (able ? 1 : 0.6)};
+  background-color: ${({ able }) => (able ? "blue" : "grey")}; */
 /* cursor: ${({ able }) => (able ? pointer) : (not-allowed))}; */
 
 export { Mail_input, Mail_Ul, Mail_Li, Mail_btn };

@@ -3,24 +3,26 @@ import { useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Mail_input, Mail_Ul, Mail_Li, Mail_btn } from "../../styles/styledCom";
 import { cache } from "react";
+import { sendEmail } from "../../lib/email";
 
-const emails = [
-  "@naver.com",
-  "@gmail.com",
-  "@daum.net",
-  "@hanmail.net",
-  "@yahoo.com",
-  "@outlook.com",
-  "@nate.com",
-  "@kakao.com",
-];
-
-const Email = () => {
+export default function Email() {
+  const emails = [
+    "@naver.com",
+    "@gmail.com",
+    "@daum.net",
+    "@hanmail.net",
+    "@yahoo.com",
+    "@outlook.com",
+    "@nate.com",
+    "@kakao.com",
+  ];
   const [_add, _setAdd] = useState("");
   const [emailList, setEmailList] = useState(emails);
   const [keyB, setKeyB] = useState(-1);
   const [drob, setDrop] = useState(false);
   const [mailCheck, setMailCheck] = useState(false);
+  const [touch, setTouch] = useState(false);
+  const [loading, setLoading] = useState(false);
   const eRef = useRef();
 
   const control = (e) => {
@@ -69,6 +71,19 @@ const Email = () => {
       }
     }
   };
+  const inputHandler = () => setTouch(true);
+
+  const submit = async (email_add) => {
+    setLoading(true);
+    const _data = new FormData();
+    _data.append("jsonData", JSON.stringify({ email_address: `${email_add}` }));
+
+    try {
+      await sendEmail(_data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   useEffect(() => {
     const handleClickOutside = (e) => {
@@ -92,6 +107,7 @@ const Email = () => {
           }}
           onKeyUp={handleKeyUp}
           check={mailCheck}
+          onBlur={inputHandler}
         />
         {drob && (
           <Mail_Ul>
@@ -113,19 +129,21 @@ const Email = () => {
       </div>
       <div>
         <Mail_btn
-          able={mailCheck}
+          // able={mailCheck}
+          isLoadin={loading}
           onClick={() => {
-            send_mail(_add);
+            submit(_add);
           }}
+          disabled={!mailCheck}
         >
           메일 전송
         </Mail_btn>
       </div>
     </div>
   );
-};
+}
 
-// async function send_mail(email_add) {
+// async function submit(email_add) {
 //   const _data = new FormData();
 //   _data.append("email_address", email_add);
 
@@ -139,22 +157,18 @@ const Email = () => {
 
 //   return "";
 // }
-async function send_mail(email_add) {
-  const _data = new FormData();
-  _data.append("email_address", email_add);
-  // for (let value of _data.values()) {
-  //   console.log(value);
-  // }
-  const _res = await fetch(`../api/mail_test`, {
-    method: "POST",
-    body: _data,
-    headers: {
-      "Content-Type": "multipart/form-data",
-    },
-  });
+// for (let value of _data.values()) {
+//   console.log(value);
+// }
+// const _res = await fetch(`../api/mail_test`, {
+//   method: "POST",
+//   body: JSON.stringify(_data),
+//   headers: {
+//     "Content-Type": "application/json",
+//   },
+// });
 
-  // const result = await _res.ok();
-  // console.log(result);
-}
-
-export default Email;
+// const result = await _res.json();
+// if (!_res.ok) {
+//   throw new Error(result.message || "서버 메일api 요청 실패");
+// }
