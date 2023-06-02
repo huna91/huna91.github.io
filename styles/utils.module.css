@@ -27,6 +27,8 @@
 .headingMd {
   font-size: 1.2rem;
   line-height: 1.5;
+  display: flex;
+  position: relative;
 }
 
 .borderCircle {
@@ -71,24 +73,100 @@
   object-fit: contain;
   margin: 25px;
 }
+.contact_listItem:hover .contact_image {
+  animation-name: twist;
+  animation-duration: 0.5s;
+}
+@keyframes twist {
+  0% {
+    transform: rotate(0);
+  }
+  25% {
+    transform: rotate(-45deg);
+  }
+  50% {
+    transform: rotate(0);
+  }
+  75% {
+    transform: rotate(45deg);
+  }
+  100% {
+    transform: rotate(0);
+  }
+}
 
 .contents_list {
   list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
-  border: 1px solid orange;
   overflow: hidden;
+  overflow-x: scroll;
+}
+
+.contents_list::-webkit-scrollbar {
+  height: 8px;
+}
+.contents_list::-webkit-scrollbar-thumb:hover {
+  background-color: aquamarine;
+  cursor: pointer;
+}
+.contents_list::-webkit-scrollbar-thumb {
+  background-color: #2f3542;
+  border-radius: 10px;
+}
+.contents_list::-webkit-scrollbar-track {
+  background-color: grey;
+  border-radius: 10px;
+  box-shadow: inset 0px 0px 5px white;
+}
+
+.contents_left_btn {
+  background-color: inherit;
+  position: absolute;
+  border: inherit;
+  left: -25px;
+  top: 25px;
+  width: 40px;
+  height: 400px;
+  cursor: pointer;
+}
+.contents_left_btn:hover,
+.contents_right_btn:hover {
+  transform: scale(1.5);
+}
+
+.contents_right_btn {
+  background-color: inherit;
+  position: absolute;
+  right: -25px;
+  top: 25px;
+  border: inherit;
+  width: 40px;
+  height: 400px;
+  cursor: pointer;
 }
 
 .contents_listItem {
   margin: 0 0.6rem 1.25rem;
-  border: 1px solid yellow;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  box-shadow: inset -13px -13px 13px 0px rgba(255, 255, 255, 0.64),
+    inset 8px 8px 10px 0px rgba(13, 39, 80, 0.16);
 }
 
+.contents_link {
+  /* display: flex; */
+  justify-content: center;
+}
 .contents_listImage {
   width: 200px;
   height: 200px;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  /* border: 1px solid yellow; */
 }
 
 .lightText {
@@ -108,4 +186,11 @@
 
 .voice_notAct {
 }
+
+.voice_form {
+  display: flex;
+  flex-direction: column;
+  margin: 1.5rem 0 2rem 7rem;
+}
+
 /* home-contacts-Phone----------------------------------------------------------------- */

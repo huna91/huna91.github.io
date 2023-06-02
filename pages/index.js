@@ -19,16 +19,17 @@ export default function Home({ allPostsData }) {
     const reader = new FileReader();
     e.preventDefault();
   };
+
   return (
     <Layout home>
       <Head>
         <title>{siteTitle}</title>
       </Head>
       <section className={utilStyles.headingMd}>
-        <p>개발자 윤하영 입니다.</p>
+        <p>웹 개발자 윤하영 입니다.</p>
       </section>
+      <h2 className={utilStyles.headingLg}>Contact</h2>
       <section>
-        <h2 className={utilStyles.headingLg}>Contact</h2>
         <ul className={`${utilStyles.contact_list}`}>
           {contact_data.map(({ image, name }) => (
             <li className={`${utilStyles.contact_listItem}`} key={name}>
@@ -50,14 +51,21 @@ export default function Home({ allPostsData }) {
           ))}
         </ul>
       </section>
+      <h2 className={utilStyles.headingLg}>Contents</h2>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingLg}>Contents</h2>
+        <button className={utilStyles.contents_left_btn}>{"<"}</button>
         <ul className={utilStyles.contents_list}>
-          {allPostsData.map(({ id, date, title }) => (
+          {allPostsData.map(({ id, date, title, image }) => (
             <li className={`${utilStyles.contents_listItem}`} key={id}>
-              <Link href={`/posts/${id}`}>
+              <Link
+                className={`${utilStyles.contents_link}`}
+                href={`/posts/${id}`}
+              >
                 <Image
                   className={`${utilStyles.contents_listImage}`}
+                  src={`/${image}`}
+                  width={200}
+                  height={200}
                   alt={`${id}`}
                 />
                 {title}
@@ -69,6 +77,7 @@ export default function Home({ allPostsData }) {
             </li>
           ))}
         </ul>
+        <button className={utilStyles.contents_right_btn}>{">"}</button>
       </section>
     </Layout>
   );

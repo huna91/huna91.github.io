@@ -21,4 +21,11 @@ const Mail_btn = styled.button`
   background-color: ${({ able }) => (able ? "blue" : "grey")}; */
 /* cursor: ${({ able }) => (able ? pointer) : (not-allowed))}; */
 
-export { Mail_input, Mail_Ul, Mail_Li, Mail_btn };
+const Voice_input = styled.input`
+  width: 400px;
+  height: 36px;
+  border: none;
+  border-radius: 5px;
+`;
+
+export { Mail_input, Mail_Ul, Mail_Li, Mail_btn, Voice_input };

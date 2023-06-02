@@ -2,27 +2,24 @@ import utilStyles from "../../styles/utils.module.css";
 import { useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Mail_input, Mail_Ul, Mail_Li, Mail_btn } from "../../styles/styledCom";
-import { cache } from "react";
-import { sendEmail } from "../../lib/email";
 
-export default function Email() {
-  const emails = [
-    "@naver.com",
-    "@gmail.com",
-    "@daum.net",
-    "@hanmail.net",
-    "@yahoo.com",
-    "@outlook.com",
-    "@nate.com",
-    "@kakao.com",
-  ];
+const emails = [
+  "@naver.com",
+  "@gmail.com",
+  "@daum.net",
+  "@hanmail.net",
+  "@yahoo.com",
+  "@outlook.com",
+  "@nate.com",
+  "@kakao.com",
+];
+
+const Email = () => {
   const [_add, _setAdd] = useState("");
   const [emailList, setEmailList] = useState(emails);
   const [keyB, setKeyB] = useState(-1);
   const [drob, setDrop] = useState(false);
   const [mailCheck, setMailCheck] = useState(false);
-  const [touch, setTouch] = useState(false);
-  const [loading, setLoading] = useState(false);
   const eRef = useRef();
 
   const control = (e) => {
@@ -71,19 +68,6 @@ export default function Email() {
       }
     }
   };
-  const inputHandler = () => setTouch(true);
-
-  const submit = async (email_add) => {
-    setLoading(true);
-    const _data = new FormData();
-    _data.append("jsonData", JSON.stringify({ email_address: `${email_add}` }));
-
-    try {
-      await sendEmail(_data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   useEffect(() => {
     const handleClickOutside = (e) => {
@@ -107,7 +91,6 @@ export default function Email() {
           }}
           onKeyUp={handleKeyUp}
           check={mailCheck}
-          onBlur={inputHandler}
         />
         {drob && (
           <Mail_Ul>
@@ -129,21 +112,19 @@ export default function Email() {
       </div>
       <div>
         <Mail_btn
-          // able={mailCheck}
-          isLoadin={loading}
+          able={mailCheck}
           onClick={() => {
-            submit(_add);
+            send_mail(_add);
           }}
-          disabled={!mailCheck}
         >
           메일 전송
         </Mail_btn>
       </div>
     </div>
   );
-}
+};
 
-// async function submit(email_add) {
+// async function send_mail(email_add) {
 //   const _data = new FormData();
 //   _data.append("email_address", email_add);
 
@@ -157,18 +138,23 @@ export default function Email() {
 
 //   return "";
 // }
-// for (let value of _data.values()) {
-//   console.log(value);
-// }
-// const _res = await fetch(`../api/mail_test`, {
-//   method: "POST",
-//   body: JSON.stringify(_data),
-//   headers: {
-//     "Content-Type": "application/json",
-//   },
-// });
+async function send_mail(email_add) {
+  // const _data = new FormData();
+  // _data.append("file", file);
+  // _data.append("jsonData", JSON.stringify({ email_address: email_add }));
+  // for (let value of _data.values()) {
+  //   console.log(value);
+  // }
+  const _res = await fetch(`../api/send_email`, {
+    method: "POST",
+    body: JSON.stringify({ email_address: email_add }),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
 
-// const result = await _res.json();
-// if (!_res.ok) {
-//   throw new Error(result.message || "서버 메일api 요청 실패");
-// }
+  // const result = await _res.ok();
+  // console.log(result);
+}
+
+export default Email;
