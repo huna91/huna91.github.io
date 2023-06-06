@@ -18,6 +18,7 @@ const Phone = () => {
       },
     });
     if (_res) {
+      console.log(_res);
       setIsLoading(false);
     }
   }
