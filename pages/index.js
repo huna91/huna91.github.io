@@ -5,6 +5,8 @@ import { getSortedPostsData } from "../lib/posts";
 import Link from "next/link";
 import Date from "../components/date";
 import Image from "next/image";
+import Script from "next/script";
+import { useEffect } from "react";
 
 export default function Home({ allPostsData }) {
   const contact_data = [
@@ -19,12 +21,12 @@ export default function Home({ allPostsData }) {
     const reader = new FileReader();
     e.preventDefault();
   };
-
   return (
     <Layout home>
       <Head>
         <title>{siteTitle}</title>
       </Head>
+
       <section className={utilStyles.headingMd}>
         <p>웹 개발자 윤하영 입니다.</p>
       </section>

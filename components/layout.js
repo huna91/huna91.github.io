@@ -5,6 +5,7 @@ import Script from "next/script";
 import styles from "./layout.module.css";
 import utilStyles from "../styles/utils.module.css";
 import Link from "next/link";
+import { useEffect } from "react";
 
 const name = "import HY";
 export const siteTitle = "import HY";
@@ -19,11 +20,11 @@ export default function Layout({ children, home }) {
         {/* <meta name="twitter:card" content="summary_large_image" /> */}
       </Head>
       <Script
-        src="https://connect.facebook.net/en_US/sdk.js"
-        strategy="lazyOnload"
-        onLoad={() =>
-          console.log(`script loaded correctly, window.FB has been populated`)
-        }
+      // src="https://connect.facebook.net/en_US/sdk.js"
+      // strategy="lazyOnload"
+      // onLoad={() =>
+      //   console.log(`script loaded correctly, window.FB has been populated`)
+      // }
       />
       <header className={styles.header}>
         {home ? (

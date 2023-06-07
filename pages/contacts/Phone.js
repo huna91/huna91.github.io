@@ -10,17 +10,17 @@ const Phone = () => {
   }
 
   async function submit() {
-    const _res = await fetch("../api/send_sms", {
+    await fetch("../api/send_sms", {
       method: "POST",
       body: JSON.stringify({ phone_num: number }),
       headers: {
         "Content-Type": "application/json",
       },
-    });
-    if (_res) {
-      console.log(_res);
+    }).then((res) => {
+      console.log(res);
+      console.log("결과");
       setIsLoading(false);
-    }
+    });
   }
   return (
     <div>

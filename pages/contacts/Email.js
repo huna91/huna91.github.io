@@ -82,6 +82,7 @@ const Email = () => {
   return (
     <div>
       <div className={utilStyles.email_input_container} ref={eRef}>
+        <h3>이메일을 입력해주시면 해당 메일로 제 메일을 보내드립니다.</h3>
         <Mail_input
           type="email"
           placeholder="이메일을 입력해주세요."
@@ -124,27 +125,7 @@ const Email = () => {
   );
 };
 
-// async function send_mail(email_add) {
-//   const _data = new FormData();
-//   _data.append("email_address", email_add);
-
-//   const _res = await fetch(`../api/mail_test`, {
-//     method: "POST",
-//     body: _data,
-//     headers: {
-//       "Content-Type": "multipart/form-data",
-//     },
-//   });
-
-//   return "";
-// }
 async function send_mail(email_add) {
-  // const _data = new FormData();
-  // _data.append("file", file);
-  // _data.append("jsonData", JSON.stringify({ email_address: email_add }));
-  // for (let value of _data.values()) {
-  //   console.log(value);
-  // }
   const _res = await fetch(`../api/send_email`, {
     method: "POST",
     body: JSON.stringify({ email_address: email_add }),
@@ -152,9 +133,6 @@ async function send_mail(email_add) {
       "Content-Type": "application/json",
     },
   });
-
-  // const result = await _res.ok();
-  // console.log(result);
 }
 
 export default Email;
