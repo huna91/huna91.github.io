@@ -1,34 +1,45 @@
 import React, { useEffect, useState } from "react";
-import { signIn, useSession, signOut } from "next-auth/react";
+import { signIn, useSession, signOut, getCsrfToken } from "next-auth/react";
 import Image from "next/image";
-import Kakao_btn from "../../components/kakao_btn";
+import Kakao_btn from "../../components/Kakao_btn";
 
 const Kakao = () => {
   const { data } = useSession();
-
   useEffect(() => {
     const script = document.createElement("script");
     script.src = "https://developers.kakao.com/sdk/js/kakao.js";
     script.async = true;
     document.body.appendChild(script);
-    return () => {
-      document.body.removeChild(script);
-    };
+    // return () => {
+    //   document.body.removeChild(script);
+    // };
   }, []);
+  console.log(data);
 
-  if (data) {
-    console.log(data);
-    return (
-      <>
-        {data.user?.name}님 반갑
-        <br />
-        {/* <Image src={data.user.image} width={100} height={100} /> */}
-        <Kakao_btn />
-        <button onClick={() => signOut()}>로그아웃</button>
-      </>
+  function getCookie(name) {
+    let matches = document.cookie.match(
+      new RegExp(
+        "(?:^|; )" +
+          name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, "\\$1") +
+          "=([^;]*)"
+      )
     );
+    return matches ? decodeURIComponent(matches[1]) : undefined;
   }
-  return (
+  async function mytoken() {
+    const csrfToken = await getCsrfToken();
+    console.log(csrfToken);
+  }
+
+  return data ? (
+    <>
+      {data.user?.name}님 반갑
+      <br />
+      {/* <Image src={data.user.image} width={100} height={100} /> */}
+      <Kakao_btn data={data.accessToken} />
+      <button onClick={() => signOut()}>로그아웃</button>
+    </>
+  ) : (
     <>
       로그인 해주셈
       <br />

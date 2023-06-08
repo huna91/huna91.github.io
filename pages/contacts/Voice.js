@@ -73,7 +73,7 @@ const Voice = () => {
     media.ondataavailable = function (e) {
       setAudioUrl(e.data);
       setOnRec(true);
-      onSubmitAudioFile();
+      // onSubmitAudioFile();
     };
 
     // 모든 트랙에서 stop()을 호출해 오디오 스트림을 정지
@@ -113,10 +113,11 @@ const Voice = () => {
           formData.append("jsonData", JSON.stringify(value));
         })
         .then(() => {
-          for (let value of formData.values()) {
-            console.log(value);
-          }
-          // dispatch(sound_function.sound_transfer(formData));
+          fetch("../api/send_voice", {
+            method: "POST",
+            body: JSON.stringify(formData),
+            headers: { "Content-Type": "application/json" },
+          });
         });
     }
   }, [audioUrl]);
@@ -170,9 +171,9 @@ const Voice = () => {
             }
             onClick={onRec ? onRecAudio : offRecAudio}
           >
-            녹음하기
+            {onRec ? "녹음하기" : "녹음중"}
           </button>
-          {fileCheck && <button>보내기</button>}
+          {fileCheck && <button onClick={onSubmitAudioFile}>보내기</button>}
         </div>
       ) : (
         <div className={utilStyles.voice_notAct}>
