@@ -112,12 +112,13 @@ const Voice = () => {
           formData.append("file", file);
           formData.append("jsonData", JSON.stringify(value));
         })
-        .then(() => {
-          fetch("../api/send_voice", {
+        .then(async () => {
+          console.log(formData);
+          await fetch("../api/send_voice", {
             method: "POST",
-            body: JSON.stringify(formData),
-            headers: { "Content-Type": "application/json" },
+            body: { formData: formData },
           });
+          console.log("여긴가???333333");
         });
     }
   }, [audioUrl]);
@@ -162,8 +163,8 @@ const Voice = () => {
               name="email"
               onChange={handleChange}
             />
+            <h2>5초동안 목소리를 남겨주세요</h2>
           </form>
-          <h2>5초동안 목소리를 남겨주세요</h2>
           <button
             className={utilStyles.voice_btn}
             disabled={

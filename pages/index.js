@@ -42,6 +42,7 @@ export default function Home({ allPostsData }) {
                 }}
               >
                 <Image
+                  priority
                   className={`${utilStyles.contact_image}`}
                   src={`${image}`}
                   width={100}
@@ -64,6 +65,7 @@ export default function Home({ allPostsData }) {
                 href={`/posts/${id}`}
               >
                 <Image
+                  priority
                   className={`${utilStyles.contents_listImage}`}
                   src={`/${image}`}
                   width={200}

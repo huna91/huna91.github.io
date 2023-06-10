@@ -33,7 +33,6 @@ export default async function send_kakao(req, res) {
       '"button_title": "바로 확인"' +
       "}",
   });
-
   const header = {
     "content-Type": "application/x-www-form-urlencoded",
     Authorization: "Bearer " + token,

@@ -14,8 +14,12 @@ const transporter = nodemailer.createTransport({
 // nodemailer 사용
 export default function send_voice(req, res) {
   // const jsonData = JSON.parse(req.body.jsonData);
-  console.log(req.file);
+  console.log(req.body);
+  // for (let value of req.body.values()) {
+  //   console.log(value);
+  // }
 
+  res.send(true);
   // let info = {
   //   from: config.email.id,
   //   to: `${email_address}`,

@@ -26,7 +26,7 @@ const Kakao_btn = (data) => {
   async function send_kakao_msg() {
     await fetch("../api/kakao/send_kakao", {
       method: "POST",
-      body: JSON.stringify(data.data),
+      body: JSON.stringify({ token: data.data }),
       headers: {
         "Content-Type": "application/json",
       },
