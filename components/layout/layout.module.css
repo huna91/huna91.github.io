@@ -23,3 +23,11 @@
 .backToHome {
   margin: 3rem 0 0;
 }
+
+.main_wrap {
+  border-radius: 13px;
+  padding: 1rem;
+
+  box-shadow: inset -20px -20px 33px 0px rgba(255, 255, 255, 0.64),
+    inset 15px 15px 25px 0px rgba(13, 39, 80, 0.16);
+}

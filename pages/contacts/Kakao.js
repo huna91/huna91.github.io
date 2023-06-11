@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { signIn, useSession, signOut, getCsrfToken } from "next-auth/react";
 import Image from "next/image";
-import Kakao_btn from "../../components/Kakao_btn";
+import Kakao_btn from "../../components/button/Kakao_btn";
 
 const Kakao = () => {
   const { data } = useSession();

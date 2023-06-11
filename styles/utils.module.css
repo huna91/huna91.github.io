@@ -27,8 +27,6 @@
 .headingMd {
   font-size: 1.2rem;
   line-height: 1.5;
-  display: flex;
-  position: relative;
 }
 
 .borderCircle {
@@ -44,6 +42,19 @@
 }
 
 /* home-------------------------------------------------------------------------------- */
+.section_contact {
+  border-radius: 10px;
+  box-shadow: 28px 28px 50px 0px rgba(13, 39, 80, 0.16),
+    -23px -23px 45px 0px #ffffff;
+}
+
+.section_contents {
+  border-radius: 10px;
+  box-shadow: 28px 28px 50px 0px rgba(13, 39, 80, 0.16),
+    -23px -23px 45px 0px #ffffff;
+  position: relative;
+}
+
 .contact_list {
   /* border: 1px solid red; */
   list-style: none;
@@ -51,14 +62,15 @@
   margin: 0;
   display: flex;
   width: auto;
-  height: 100px;
+  height: 120px;
   justify-content: center;
+  align-items: center;
 }
 
 .contact_listItem {
-  margin: 0 1rem 1.25rem;
-  width: 100px;
-  height: 100px;
+  margin: 0 1.2rem 0 1.2rem;
+  width: 80px;
+  height: 80px;
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -71,7 +83,7 @@
   max-width: 50px;
   max-height: 50px;
   object-fit: contain;
-  margin: 25px;
+  margin: 10px;
 }
 .contact_listItem:hover .contact_image {
   animation-name: twist;
@@ -100,6 +112,7 @@
   padding: 0;
   margin: 0;
   display: flex;
+  flex-direction: column;
   overflow: hidden;
   overflow-x: scroll;
 }
@@ -151,19 +164,19 @@
   margin: 0 0.6rem 1.25rem;
   padding: 1rem;
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   border-radius: 10px;
   box-shadow: inset -13px -13px 13px 0px rgba(255, 255, 255, 0.64),
     inset 8px 8px 10px 0px rgba(13, 39, 80, 0.16);
 }
 
 .contents_link {
-  /* display: flex; */
+  display: flex;
   justify-content: center;
 }
 .contents_listImage {
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   border-radius: 8px;
   margin-bottom: 1rem;
   /* border: 1px solid yellow; */

@@ -1,19 +1,23 @@
 ---
-title: 'When to Use Static Generation v.s. Server-side Rendering'
-date: '2022-01-02'
+title: "[Git] 강제 pull 받아오기"
+date: "2023-06-01"
 ---
 
-We recommend using **Static Generation** (with and without data) whenever possible because your page can be built once and served by CDN, which makes it much faster than having a server render the page on every request.
+**[Git] 강제 pull 받아오기**
 
-You can use Static Generation for many types of pages, including:
+하나의 브랜치로 여기저기서 작업하니 pull 떙길때 충돌날 때가 자주 있어서
+강제 pull 하는 방법을 적어놓아야 겠다.
 
-- Marketing pages
-- Blog posts
-- E-commerce product listings
-- Help and documentation
+## 강제로 pull 하는 방법
 
-You should ask yourself: "Can I pre-render this page **ahead** of a user's request?" If the answer is yes, then you should choose Static Generation.
+### 1. 깃 업데이트
 
-On the other hand, Static Generation is **not** a good idea if you cannot pre-render a page ahead of a user's request. Maybe your page shows frequently updated data, and the page content changes on every request.
+    - git remote update
 
-In that case, you can use **Server-Side Rendering**. It will be slower, but the pre-rendered page will always be up-to-date. Or you can skip pre-rendering and use client-side JavaScript to populate data.
+### 2. 커밋 리셋
+
+    - git reset --hard origin/main
+
+### 3. 깃 풀받기
+
+    - git pull

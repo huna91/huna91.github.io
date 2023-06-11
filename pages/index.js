@@ -31,7 +31,7 @@ export default function Home({ allPostsData }) {
         <p>웹 개발자 윤하영 입니다.</p>
       </section>
       <h2 className={utilStyles.headingLg}>Contact</h2>
-      <section>
+      <section className={utilStyles.section_contact}>
         <ul className={`${utilStyles.contact_list}`}>
           {contact_data.map(({ image, name }) => (
             <li className={`${utilStyles.contact_listItem}`} key={name}>
@@ -55,7 +55,7 @@ export default function Home({ allPostsData }) {
         </ul>
       </section>
       <h2 className={utilStyles.headingLg}>Contents</h2>
-      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
+      <section className={utilStyles.section_contents}>
         <button className={utilStyles.contents_left_btn}>{"<"}</button>
         <ul className={utilStyles.contents_list}>
           {allPostsData.map(({ id, date, title, image }) => (
@@ -72,12 +72,14 @@ export default function Home({ allPostsData }) {
                   height={200}
                   alt={`${id}`}
                 />
-                {title}
+                <div>
+                  {title}
+                  <br />
+                  <small className={utilStyles.lightText}>
+                    <Date dateString={date} />
+                  </small>
+                </div>
               </Link>
-              <br />
-              <small className={utilStyles.lightText}>
-                <Date dateString={date} />
-              </small>
             </li>
           ))}
         </ul>

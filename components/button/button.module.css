@@ -1,0 +1,63 @@
+.send_btn {
+  position: absolute;
+  border: none;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 280px;
+  height: 100px;
+  background: #e0dcdc;
+  text-transform: capitalize;
+  text-align: center;
+  line-height: 100px;
+  color: black;
+  text-decoration: none;
+  font-size: 40px;
+  font-family: Verdana;
+  letter-spacing: 4px;
+}
+
+.send_btn::before,
+.send_btn::after,
+.send_btn_span::after,
+.send_btn_span::before {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: #ff0;
+  transition: 1s;
+  mix-blend-mode: hue;
+}
+
+.send_btn::before {
+  background: blue;
+  top: -5px;
+  left: -5px;
+}
+
+.send_btn::after {
+  background: green;
+  top: -5px;
+  right: -5px;
+}
+
+.send_btn_span::after {
+  background: red;
+  bottom: -5px;
+  right: -5px;
+}
+
+.send_btn_span::before {
+  background: yellow;
+  bottom: -5px;
+  left: -5px;
+}
+
+.send_btn:hover::after,
+.send_btn:hover::before,
+.send_btn:hover .send_btn_span::before,
+.send_btn:hover .send_btn_span::after {
+  width: calc(280px / 2);
+  height: calc(100px / 2);
+}

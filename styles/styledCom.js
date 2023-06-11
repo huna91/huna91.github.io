@@ -28,4 +28,16 @@ const Voice_input = styled.input`
   border-radius: 5px;
 `;
 
+const Send_btn = styled.button`
+  width: 200px;
+  height: 60px;
+  ::after,
+  ::before {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+  }
+`;
+
 export { Mail_input, Mail_Ul, Mail_Li, Mail_btn, Voice_input };
