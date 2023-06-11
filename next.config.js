@@ -4,9 +4,9 @@ const nextConfig = {
   images: {
     domains: [""],
   },
-  api: {
-    bodyParser: false,
-  },
+  // api: {
+  //   bodyParser: false,
+  // },
 };
 
 module.exports = nextConfig;

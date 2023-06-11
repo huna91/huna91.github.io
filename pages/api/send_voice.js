@@ -28,15 +28,16 @@ export default async function send_voice(req, res) {
       return;
     }
 
-    const { name, position, phone, email } = fields.jsonData;
+    const { name, position, phone, email } = JSON.parse(fields.jsonData);
+
     const { file } = files;
-    // console.log(file.filepath);
+    console.log(file);
     const info = {
-      from: `${email}`,
+      from: config_mail.email.id,
       to: config_mail.email.id,
       subject: "안녕하세요! 윤하영 입니다.",
       html: `<p>해당 메일로 답장 주셔서 연락 부탁드립니다! 감사합니다 :)</p>`,
-      attachments: [{ path: file.filepath }],
+      attachments: [{ path: file.filepath, filename: file.originalFilename }],
     };
     console.log("들왔나?");
     // 메일 전송
