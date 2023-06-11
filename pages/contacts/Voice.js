@@ -92,7 +92,7 @@ const Voice = () => {
   };
 
   // 녹음파일 전송
-  const onSubmitAudioFile = useCallback(() => {
+  const onSubmitAudioFile = () => {
     if (audioUrl) {
       const { year, month, day, hours, minutes } = time();
       // 파일 전송을 위한 form data 생성
@@ -113,15 +113,14 @@ const Voice = () => {
           formData.append("jsonData", JSON.stringify(value));
         })
         .then(async () => {
-          console.log(formData);
-          await fetch("../api/send_voice", {
+          const _respzzz = await fetch("../api/send_voice", {
             method: "POST",
-            body: { formData: formData },
+            body: formData,
           });
-          console.log("여긴가???333333");
+          console.log(_respzzz);
         });
     }
-  }, [audioUrl]);
+  };
 
   useEffect(() => {
     navigator.mediaDevices.getUserMedia({ audio: true }).then(() => {
