@@ -1,8 +1,8 @@
 import utilStyles from "../../styles/utils.module.css";
 import btnStyle from "../../styles/button.module.css";
 import { useEffect, useRef, useState } from "react";
-import { useDispatch } from "react-redux";
 import { Mail_input, Mail_Ul, Mail_Li, Mail_btn } from "../../styles/styledCom";
+import { useRouter } from "next/router";
 
 const emails = [
   "@naver.com",
@@ -22,6 +22,7 @@ const Email = () => {
   const [drob, setDrop] = useState(false);
   const [mailCheck, setMailCheck] = useState(false);
   const eRef = useRef();
+  const router = useRouter();
 
   const control = (e) => {
     _setAdd(e.target.value);
@@ -83,7 +84,14 @@ const Email = () => {
   return (
     <div>
       <div className={utilStyles.email_input_container} ref={eRef}>
-        <h3>이메일을 입력해주시면 해당 메일로 제 메일을 보내드립니다.</h3>
+        <h3>이메일을 입력해주시면 해당 메일로 연락메일을 보내드립니다.</h3>
+        {!mailCheck ? (
+          <p className={utilStyles.email_add_check_p}>
+            올바른 이메일 주소를 입력해주세요!
+          </p>
+        ) : (
+          <p className={utilStyles.email_add_check_p}>굳!</p>
+        )}
         <Mail_input
           type="email"
           placeholder="이메일 입력"
@@ -111,16 +119,20 @@ const Email = () => {
             ))}
           </Mail_Ul>
         )}
-        <button
-          className={btnStyle.send_btn}
-          able={mailCheck}
-          onClick={() => {
-            send_mail(_add);
-          }}
-        >
-          <span className={btnStyle.send_btn_span}></span>
-          메일 전송
-        </button>
+        {mailCheck ? (
+          <button
+            className={btnStyle.send_btn}
+            able={mailCheck}
+            onClick={async () => {
+              return send_mail(_add).then(() => router.reload());
+            }}
+          >
+            <span className={btnStyle.send_btn_span}></span>
+            메일 전송
+          </button>
+        ) : (
+          <></>
+        )}
       </div>
       <div></div>
     </div>
@@ -128,13 +140,14 @@ const Email = () => {
 };
 
 async function send_mail(email_add) {
-  const _res = await fetch(`../api/send_email`, {
+  await fetch(`../api/send_email`, {
     method: "POST",
     body: JSON.stringify({ email_address: email_add }),
     headers: {
       "Content-Type": "application/json",
     },
   });
+  return alert("메일 전송 성공!");
 }
 
 export default Email;

@@ -1,7 +1,9 @@
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState } from "react";
 import utilStyles from "../../styles/utils.module.css";
 import time from "../api/time";
 import { Voice_input } from "../../styles/styledCom";
+import btnStyles from "../../styles/button.module.css";
+import { useRouter } from "next/router";
 
 const initValue = {
   name: "",
@@ -21,6 +23,7 @@ const Voice = () => {
   const [value, setValue] = useState(initValue);
   const [touched, setTouched] = useState({});
   const [fileCheck, setFileCheck] = useState(false);
+  const router = useRouter();
 
   const onBlur = ({ target }) =>
     setTouched((prev) => ({ ...prev, [target.name]: true }));
@@ -89,10 +92,11 @@ const Voice = () => {
     source.disconnect();
 
     setFileCheck(true);
+    return alert("녹음 완료! 보내기 버튼을 눌러주세요.");
   };
 
   // 녹음파일 전송
-  const onSubmitAudioFile = () => {
+  const onSubmitAudioFile = async () => {
     if (audioUrl) {
       const { year, month, day, hours, minutes } = time();
       // 파일 전송을 위한 form data 생성
@@ -117,9 +121,10 @@ const Voice = () => {
             method: "POST",
             body: formData,
           });
-          console.log(_respzzz);
+          // console.log(_respzzz);
         });
     }
+    return alert("목소리 전달 성공!");
   };
 
   useEffect(() => {
@@ -132,7 +137,12 @@ const Voice = () => {
     <>
       {audioAct ? (
         <div className={utilStyles.voice_act}>
-          <h1>목소리를 남겨주시면 제게 전달됩니다!</h1>
+          <h2 className={utilStyles.voice_title}>
+            목소리를 남겨주시면 제게 전달됩니다!
+          </h2>
+          <p className={utilStyles.voice_explain}>
+            아래 정보를 입력하시고 활성된 버튼을 눌러주세요.
+          </p>
           <form className={utilStyles.voice_form}>
             <label>Name</label>
             <Voice_input
@@ -140,6 +150,7 @@ const Voice = () => {
               type="text"
               name="name"
               onChange={handleChange}
+              placeholder="홍길동"
             />
             <label>Position</label>
             <Voice_input
@@ -147,6 +158,7 @@ const Voice = () => {
               type="text"
               name="position"
               onChange={handleChange}
+              placeholder="매니저"
             />
             <label>Phone</label>
             <Voice_input
@@ -154,6 +166,7 @@ const Voice = () => {
               type="text"
               name="phone"
               onChange={handleChange}
+              placeholder="01012345678"
             />
             <label>Email</label>
             <Voice_input
@@ -161,19 +174,29 @@ const Voice = () => {
               type="text"
               name="email"
               onChange={handleChange}
+              placeholder="asdf@email.com"
             />
-            <h2>5초동안 목소리를 남겨주세요</h2>
           </form>
-          <button
-            className={utilStyles.voice_btn}
-            disabled={
-              !value.name || !value.position || !value.phone || !value.email
-            }
-            onClick={onRec ? onRecAudio : offRecAudio}
-          >
-            {onRec ? "녹음하기" : "녹음중"}
-          </button>
-          {fileCheck && <button onClick={onSubmitAudioFile}>보내기</button>}
+          <div className={utilStyles.voice_btn_wrap}>
+            <button
+              className={btnStyles.voice_record_btn}
+              disabled={
+                !value.name || !value.position || !value.phone || !value.email
+              }
+              onClick={onRec ? onRecAudio : offRecAudio}
+            >
+              {onRec ? "녹음하기" : "녹음중지"}
+            </button>
+            <button
+              className={btnStyles.voice_send_btn}
+              disabled={!fileCheck}
+              onClick={async () => {
+                return onSubmitAudioFile().then(() => router.reload());
+              }}
+            >
+              보내기
+            </button>
+          </div>
         </div>
       ) : (
         <div className={utilStyles.voice_notAct}>

@@ -44,8 +44,8 @@
 /* home-------------------------------------------------------------------------------- */
 .section_contact {
   border-radius: 10px;
-  box-shadow: 28px 28px 50px 0px rgba(13, 39, 80, 0.16),
-    -23px -23px 45px 0px #ffffff;
+  box-shadow: 10px 10px 20px 0px rgba(13, 39, 80, 0.16),
+    -5px -5px 30px 0px #ffffff;
 }
 
 .section_contents {
@@ -108,13 +108,14 @@
 }
 
 .contents_list {
+  height: 300px;
   list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  overflow-x: scroll;
+  overflow-y: scroll;
 }
 
 .contents_list::-webkit-scrollbar {
@@ -193,21 +194,73 @@
   /* display: flex; */
   flex-direction: column;
   align-items: center;
-  /* position: relative; */
+  position: relative;
   /* border: 1px solid blueviolet; */
+}
+
+.email_add_check_p {
+  font-size: 5px;
 }
 /* home-contacts-Kakao----------------------------------------------------------------- */
 /* home-contacts-Voice----------------------------------------------------------------- */
-.voice_act {
+.voice_title {
+  text-align: center;
+  margin: 1rem 0 0 0;
 }
 
-.voice_notAct {
+.voice_explain {
+  text-align: center;
+  font-size: 15px;
+  color: blue;
 }
 
 .voice_form {
   display: flex;
   flex-direction: column;
-  margin: 1.5rem 0 2rem 7rem;
+  margin: 1.5rem 0 2rem 6rem;
+}
+
+.voice_btn_wrap {
+  display: flex;
+  justify-content: center;
 }
 
 /* home-contacts-Phone----------------------------------------------------------------- */
+.phone_num_container {
+  display: flex;
+  justify-content: center;
+}
+.phone_table_wrap {
+  display: flex;
+  justify-content: center;
+  margin: 30px;
+}
+.phone_input_table {
+}
+.phone_input_table td {
+  cursor: pointer;
+  text-align: center;
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  font-size: 30px;
+  transition: 0.5s;
+  box-shadow: -13px -13px 13px 0px rgba(255, 255, 255, 0.64),
+    8px 8px 10px 0px rgba(13, 39, 80, 0.16);
+}
+.phone_input_table td:hover {
+  transform: scale(1.2);
+}
+
+/* .phone_num_box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: calc(-50%, -50%);
+} */
+.phone_num_box::before {
+  /* position: absolute; */
+  /* top: 5px; */
+  border: 1px solid pink;
+  margin: 5px;
+}
