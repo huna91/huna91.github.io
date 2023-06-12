@@ -1,4 +1,5 @@
 import utilStyles from "../../styles/utils.module.css";
+import btnStyle from "../../styles/button.module.css";
 import { useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Mail_input, Mail_Ul, Mail_Li, Mail_btn } from "../../styles/styledCom";
@@ -85,7 +86,7 @@ const Email = () => {
         <h3>이메일을 입력해주시면 해당 메일로 제 메일을 보내드립니다.</h3>
         <Mail_input
           type="email"
-          placeholder="이메일을 입력해주세요."
+          placeholder="이메일 입력"
           value={_add}
           onChange={(e) => {
             control(e);
@@ -110,17 +111,18 @@ const Email = () => {
             ))}
           </Mail_Ul>
         )}
-      </div>
-      <div>
-        <Mail_btn
+        <button
+          className={btnStyle.send_btn}
           able={mailCheck}
           onClick={() => {
             send_mail(_add);
           }}
         >
+          <span className={btnStyle.send_btn_span}></span>
           메일 전송
-        </Mail_btn>
+        </button>
       </div>
+      <div></div>
     </div>
   );
 };

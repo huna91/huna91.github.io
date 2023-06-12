@@ -3,10 +3,14 @@ import styled from "styled-components";
 const Mail_input = styled.input`
   box-shadow: 0 0 5px ${({ check }) => (check ? "green" : "pink")};
   border: 1px solid ${({ check }) => (check ? "green" : "pink")};
+  width: 80%;
+  height: 8%;
+  border-radius: 5px;
 `;
 
 const Mail_Ul = styled.ul`
   border: 1px solid red;
+  list-style-type: style none;
 `;
 
 const Mail_Li = styled.li`

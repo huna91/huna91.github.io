@@ -190,7 +190,11 @@
 /* home-contacts-Email----------------------------------------------------------------- */
 .email_input_container {
   height: 380px;
-  border: 1px solid blueviolet;
+  /* display: flex; */
+  flex-direction: column;
+  align-items: center;
+  /* position: relative; */
+  /* border: 1px solid blueviolet; */
 }
 /* home-contacts-Kakao----------------------------------------------------------------- */
 /* home-contacts-Voice----------------------------------------------------------------- */

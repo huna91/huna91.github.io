@@ -5,8 +5,6 @@ import { getSortedPostsData } from "../lib/posts";
 import Link from "next/link";
 import Date from "../components/date";
 import Image from "next/image";
-import Script from "next/script";
-import { useEffect } from "react";
 
 export default function Home({ allPostsData }) {
   const contact_data = [
