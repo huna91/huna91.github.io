@@ -105,3 +105,111 @@
     inset -10px 10px 20px 0px rgb(62, 255, 226);
 }
 /* ===================================================== */
+
+/* ================= Phone Send Button ================= */
+.phone_send_btn {
+  margin: 0 50px;
+  width: 200px;
+  height: 200px;
+  border-radius: 9999px;
+  border: none;
+  font-size: 40px;
+  font-weight: 800;
+  background: none;
+  cursor: pointer;
+  transition: 1s;
+  position: relative;
+  color: rgb(0, 0, 0);
+  text-shadow: -2px -2px 5px rgb(78, 79, 67), 2px 2px 5px rgb(78, 79, 67);
+}
+
+.phone_send_btn:hover {
+  font-size: 50px;
+}
+
+.phone_send_btn:disabled {
+  text-shadow: inherit;
+  color: gray;
+}
+.phone_send_span1::after {
+  transform: rotate(0deg);
+  animation: phone1 4s infinite;
+  box-shadow: inset -20px -20px 35px 0px rgba(255, 255, 255, 0.64),
+    inset 20px 20px 35px 0px rgba(13, 39, 80, 0.16);
+}
+.phone_send_span1::before {
+  transform: rotate(45deg);
+  animation: phone2 5s infinite;
+  box-shadow: inset -20px -20px 35px 0px rgba(255, 255, 255, 0.64),
+    inset 20px 20px 35px 0px rgba(13, 39, 80, 0.16);
+}
+.phone_send_span2::after {
+  transform: rotate(90deg);
+  animation: phone3 6s infinite;
+  box-shadow: inset -20px -20px 35px 0px rgba(255, 255, 255, 0.64),
+    inset 20px 20px 35px 0px rgba(13, 39, 80, 0.16);
+}
+.phone_send_span2::before {
+  transform: rotate(135deg);
+  animation: phone4 8s infinite;
+  box-shadow: inset -20px -20px 35px 0px rgba(255, 255, 255, 0.64),
+    inset 20px 20px 35px 0px rgba(13, 39, 80, 0.16);
+}
+.phone_send_span1::after,
+.phone_send_span1::before,
+.phone_send_span2::after,
+.phone_send_span2::before {
+  width: 190px;
+  height: 210px;
+  content: "";
+  border-radius: 50px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+@keyframes phone1 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes phone2 {
+  0% {
+    transform: rotate(45deg);
+  }
+  100% {
+    transform: rotate(405deg);
+  }
+}
+@keyframes phone3 {
+  0% {
+    transform: rotate(90deg);
+  }
+  100% {
+    transform: rotate(450deg);
+  }
+}
+@keyframes phone4 {
+  0% {
+    transform: rotate(135deg);
+  }
+  100% {
+    transform: rotate(495deg);
+  }
+}
+/* ===================================================== */
+
+/* ================= Kakao Send Button ================= */
+.kakao_login_btn {
+  width: 366px;
+  height: 90px;
+  border: none;
+  /* border-radius: 13px; */
+  background-color: inherit;
+  color: #000000 85%;
+  font-size: 30px;
+  cursor: pointer;
+  background-image: url("../public/images/kakao_login_btn.png");
+}

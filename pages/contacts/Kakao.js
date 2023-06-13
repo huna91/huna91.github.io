@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { signIn, useSession, signOut, getCsrfToken } from "next-auth/react";
-import Image from "next/image";
+import btnStyles from "../../styles/button.module.css";
 import Kakao_btn from "../../components/button/Kakao_btn";
 
 const Kakao = () => {
@@ -14,7 +14,6 @@ const Kakao = () => {
     //   document.body.removeChild(script);
     // };
   }, []);
-  console.log(data);
 
   function getCookie(name) {
     let matches = document.cookie.match(
@@ -26,10 +25,6 @@ const Kakao = () => {
     );
     return matches ? decodeURIComponent(matches[1]) : undefined;
   }
-  async function mytoken() {
-    const csrfToken = await getCsrfToken();
-    console.log(csrfToken);
-  }
 
   return data ? (
     <>
@@ -40,11 +35,17 @@ const Kakao = () => {
       <button onClick={() => signOut()}>로그아웃</button>
     </>
   ) : (
-    <>
-      로그인 해주셈
+    <div>
+      <h2>
+        카카오 로그인을 하시면 <br />
+        1:1 채팅 주소를 보내드립니다.
+      </h2>
       <br />
-      <button onClick={() => signIn("kakao")}>로그인</button>
-    </>
+      <button
+        className={btnStyles.kakao_login_btn}
+        onClick={() => signIn("kakao")}
+      ></button>
+    </div>
   );
 };
 

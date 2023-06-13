@@ -35,10 +35,14 @@ const Voice_input = styled.input`
 const Phone_box = styled.div`
   width: 40px;
   height: 40px;
+  text-align: center;
+  line-height: 38px;
+  border-radius: 5px;
   box-shadow: -4px -4px 13px 0px rgba(255, 255, 255, 0.64),
     4px 4px 10px 0px rgba(13, 39, 80, 0.16);
-  margin: 0 ${({ cur }) => (cur === 2 || cur === 6 ? "20px" : "8px")} 0 0;
-  border-bottom: 2px solid ${({ cur }) => (cur ? "none" : "black")};
+  margin: 0 ${({ ind }) => (ind === 2 || ind === 6 ? "20px" : "8px")} 0 0;
+  border-bottom: 2px solid
+    ${({ cur, ind }) => (cur !== ind ? "none" : "fuchsia")};
 `;
 
 export { Mail_input, Mail_Ul, Mail_Li, Mail_btn, Voice_input, Phone_box };

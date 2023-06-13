@@ -85,16 +85,19 @@ const Email = () => {
     <div>
       <div className={utilStyles.email_input_container} ref={eRef}>
         <h3>이메일을 입력해주시면 해당 메일로 연락메일을 보내드립니다.</h3>
-        {!mailCheck ? (
-          <p className={utilStyles.email_add_check_p}>
-            올바른 이메일 주소를 입력해주세요!
-          </p>
-        ) : (
-          <p className={utilStyles.email_add_check_p}>굳!</p>
-        )}
+        <label>
+          Email Address
+          {!mailCheck ? (
+            <p className={utilStyles.email_add_check_p}>
+              이메일 주소를 입력해주세요!
+            </p>
+          ) : (
+            <p className={utilStyles.email_add_check_p}>굳!</p>
+          )}
+        </label>
         <Mail_input
           type="email"
-          placeholder="이메일 입력"
+          placeholder="importHY@example.com"
           value={_add}
           onChange={(e) => {
             control(e);

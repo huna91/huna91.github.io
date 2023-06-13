@@ -12,7 +12,7 @@ export default async function send_sms(req, res) {
     contentType: "COMM",
     countryCode: "82",
     from: process.env.MY_PHONE,
-    content: "또안됨? ",
+    content: "안녕하세요. 윤하영 입니다. 해당 번호로 연락 부탁드립니다.",
     messages: [
       {
         to: phone_num,
@@ -22,7 +22,6 @@ export default async function send_sms(req, res) {
 
   const date = Date.now().toString();
   const signature = makeSignature(date, _url2);
-  console.log(signature, "22222222222222222222222222222222222");
   await axios({
     method: "post",
     url: _url,
@@ -34,11 +33,11 @@ export default async function send_sms(req, res) {
     },
     data: send_data,
   })
-    .then(async (res) => {
-      console.log(res.data, "성공//1/111/1/1/1///1/1/1");
+    .then((resolve) => {
+      res.send({ result: "문자 전송 성공" });
+      return;
     })
     .catch((err) => {
-      console.log(err.response);
-      console.log("실패11/11.1.");
+      res.send(err);
     });
 }
