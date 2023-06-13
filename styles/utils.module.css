@@ -203,6 +203,12 @@
   font-size: 5px;
 }
 /* home-contacts-Kakao----------------------------------------------------------------- */
+.prev_login_wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 /* home-contacts-Voice----------------------------------------------------------------- */
 .voice_title {
   text-align: center;
