@@ -203,13 +203,28 @@
 
 /* ================= Kakao Send Button ================= */
 .kakao_login_btn {
-  width: 366px;
-  height: 90px;
+  width: 240px;
+  height: 59px;
   border: none;
-  /* border-radius: 13px; */
   background-color: inherit;
   color: #000000 85%;
   font-size: 30px;
   cursor: pointer;
   background-image: url("../public/images/kakao_login_btn.png");
+  background-size: contain;
+}
+
+.kakao_send_btn {
+  width: 200px;
+  height: 50px;
+  font-size: 15px;
+  margin-top: 30px;
+  border: none;
+  background-color: #fee500;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.kakao_send_btn:hover {
+  border: 6px outset yellow;
+  font-weight: bold;
 }

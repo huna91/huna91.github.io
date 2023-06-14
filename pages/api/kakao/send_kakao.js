@@ -25,12 +25,12 @@ export default async function send_kakao(req, res) {
     template_object:
       "{" +
       '"object_type": "text",' +
-      '"text": "텍스트 영역입니다. 최대 200자 표시 가능합니다.",' +
+      '"text": "안녕하세요! 윤하영 입니다. 연락주셔서 감사합니다. 자세한 대화는 아래 채팅방에서 부탁드려요:)",' +
       '"link": {' +
-      '    "web_url": "https://developers.kakao.com",' +
-      '    "mobile_web_url": "https://developers.kakao.com"' +
+      '    "web_url": "https://open.kakao.com/o/swnaoHof",' +
+      '    "mobile_web_url": "https://open.kakao.com/o/swnaoHof"' +
       "}," +
-      '"button_title": "바로 확인"' +
+      '"button_title": "톡하러 가기!"' +
       "}",
   });
   const header = {
@@ -39,22 +39,6 @@ export default async function send_kakao(req, res) {
   };
 
   let rtn = await call("POST", uri, param, header);
-  console.log();
-  console.log(rtn);
+
   res.send(rtn);
 }
-
-// window.Kakao.Share.sendDefault({
-//   objectType: "text",
-//   text: "임의의 버튼을 설정할 수도 있습니다. 여러 장의 이미지, 프로필 정보 등 보다 확장된 형태의 카카오톡 공유는 다른 템플릿을 이용해 보낼 수 있습니다.",
-//   link: {
-//     // [내 애플리케이션] > [플랫폼] 에서 등록한 사이트 도메인과 일치해야 함
-//     mobileWebUrl: "https://developers.kakao.com",
-//     webUrl: "https://developers.kakao.com",
-//   },
-// });
-
-// useEffect(() => {
-//   // window.Kakao.init(process.env.KAKAO_APP_KEY);
-//   // console.log("카카오 API 잘 불러와짐?", window.Kakao.isInitialized());
-// }, []);

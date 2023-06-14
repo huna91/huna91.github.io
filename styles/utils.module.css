@@ -203,11 +203,59 @@
   font-size: 5px;
 }
 /* home-contacts-Kakao----------------------------------------------------------------- */
-.prev_login_wrap {
+
+.kakao_container {
+  width: auto;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.kakao_login_wrap > h3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5px;
+  margin: 0;
+}
+.kakao_login_wrap {
+  width: 300px;
+  height: 400px;
+  box-shadow: -13px -13px 13px 0px rgba(255, 255, 255, 0.64),
+    8px 8px 10px 0px rgba(13, 39, 80, 0.16);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border-radius: 30px;
+  position: relative;
+}
+
+.kakao_login_wrap > h2,
+.kakao_login_wrap > h4 {
+  text-align: center;
+  margin: 0;
+}
+
+.kakao_login_img {
+  border-radius: 99999px;
+}
+
+.kakao_logout_btn {
+  width: 100px;
+  height: 35px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  background: inherit;
+  transition: 0.7s;
+}
+.kakao_logout_btn:hover {
+  background: pink;
+  font-weight: 900;
 }
 /* home-contacts-Voice----------------------------------------------------------------- */
 .voice_title {

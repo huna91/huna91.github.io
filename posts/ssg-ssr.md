@@ -1,23 +1,37 @@
 ---
-title: "[Git] 강제 pull 받아오기"
+title: "사용기술"
 date: "2023-06-01"
 ---
 
-**[Git] 강제 pull 받아오기**
+### Frontend
 
-하나의 브랜치로 여기저기서 작업하니 pull 떙길때 충돌날 때가 자주 있어서
-강제 pull 하는 방법을 적어놓아야 겠다.
+- HTML / CSS / JS
+- React
+- Typescript
+- Redux
+- Nextjs
 
-## 강제로 pull 하는 방법
+### Backend
 
-### 1. 깃 업데이트
+- Node.js
+- MYSQL
+- Nestjs
+- Prisma
 
-    - git remote update
+### Blockchain
 
-### 2. 커밋 리셋
+- Solidity
 
-    - git reset --hard origin/main
+### Deployment
 
-### 3. 깃 풀받기
+- AWS
+- Vercel
 
-    - git pull
+### Version Control
+
+- Github
+
+### Communication
+
+- Slack
+- Trello

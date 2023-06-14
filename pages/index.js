@@ -26,7 +26,7 @@ export default function Home({ allPostsData }) {
       </Head>
 
       <section className={utilStyles.headingMd}>
-        <p>웹 개발자 윤하영 입니다.</p>
+        <p>안녕하세요. 지혜로운 사람이 되고자 하는 웹 개발자 윤하영 입니다.</p>
       </section>
       <h2 className={utilStyles.headingLg}>Contact</h2>
       <section className={utilStyles.section_contact}>
