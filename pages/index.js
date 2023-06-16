@@ -5,6 +5,8 @@ import { getSortedPostsData } from "../lib/posts";
 import Link from "next/link";
 import Date from "../components/date";
 import Image from "next/image";
+import { Contents_ul } from "../styles/styledCom";
+import { useState } from "react";
 
 export default function Home({ allPostsData }) {
   const contact_data = [
@@ -15,9 +17,19 @@ export default function Home({ allPostsData }) {
     { image: "/icon/icon-blockchain.png", name: "blockchain" },
   ];
 
-  const ImageHandler = async (e) => {
-    const reader = new FileReader();
-    e.preventDefault();
+  const [page, setPage] = useState(0);
+  const slideHandler = async (e) => {
+    switch (e) {
+      case "LEFT":
+        setPage(page - 1);
+        break;
+      case "RIGHT":
+        setPage(page + 1);
+        break;
+
+      default:
+        break;
+    }
   };
   return (
     <Layout home>
@@ -26,7 +38,10 @@ export default function Home({ allPostsData }) {
       </Head>
 
       <section className={utilStyles.headingMd}>
-        <p>안녕하세요. 지혜로운 사람이 되고자 하는 웹 개발자 윤하영 입니다.</p>
+        <p>
+          안녕하세요. 지혜로운 사람이 되고자 하는 웹 개발자 윤하영 입니다. 현재
+          페이지 제작 중 입니다.
+        </p>
       </section>
       <h2 className={utilStyles.headingLg}>Contact</h2>
       <section className={utilStyles.section_contact}>
@@ -55,7 +70,7 @@ export default function Home({ allPostsData }) {
       <h2 className={utilStyles.headingLg}>Contents</h2>
       <section className={utilStyles.section_contents}>
         <button className={utilStyles.contents_left_btn}>{"<"}</button>
-        <ul className={utilStyles.contents_list}>
+        <Contents_ul className={utilStyles.contents_list} page={page}>
           {allPostsData.map(({ id, date, title, image }) => (
             <li className={`${utilStyles.contents_listItem}`} key={id}>
               <Link
@@ -80,8 +95,15 @@ export default function Home({ allPostsData }) {
               </Link>
             </li>
           ))}
-        </ul>
-        <button className={utilStyles.contents_right_btn}>{">"}</button>
+        </Contents_ul>
+        <button
+          className={utilStyles.contents_right_btn}
+          onClick={() => {
+            slideHandler();
+          }}
+        >
+          {">"}
+        </button>
       </section>
     </Layout>
   );

@@ -45,4 +45,23 @@ const Phone_box = styled.div`
     ${({ cur, ind }) => (cur !== ind ? "none" : "fuchsia")};
 `;
 
-export { Mail_input, Mail_Ul, Mail_Li, Mail_btn, Voice_input, Phone_box };
+const Contents_ul = styled.ul`
+  height: 228px;
+  list-style: none;
+  padding: 20px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+`;
+
+export {
+  Mail_input,
+  Mail_Ul,
+  Mail_Li,
+  Mail_btn,
+  Voice_input,
+  Phone_box,
+  Contents_ul,
+};

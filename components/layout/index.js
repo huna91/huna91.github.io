@@ -14,17 +14,8 @@ export default function Layout({ children, home }) {
     <div className={styles.container}>
       <Head>
         <link rel="icon" href="/logo/logo_head.png" />
-
-        {/* <meta name="og:title" content={siteTitle} /> */}
-        {/* <meta name="twitter:card" content="summary_large_image" /> */}
       </Head>
-      <Script
-      // src="https://connect.facebook.net/en_US/sdk.js"
-      // strategy="lazyOnload"
-      // onLoad={() =>
-      //   console.log(`script loaded correctly, window.FB has been populated`)
-      // }
-      />
+      <Script />
       <header className={styles.header}>
         {home ? (
           <>
@@ -60,8 +51,10 @@ export default function Layout({ children, home }) {
       </header>
       <main className={styles.main_wrap}>{children}</main>
       {!home && (
-        <div className={styles.backToHome}>
-          <Link href="/">← Back to home</Link>
+        <div className={styles.backToHome_wrap}>
+          <Link className={styles.backToHome_link} href="/">
+            <div className={styles.backToHome_link_div}>GO!</div>
+          </Link>
         </div>
       )}
     </div>
