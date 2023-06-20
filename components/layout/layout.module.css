@@ -2,7 +2,6 @@
   max-width: 40rem;
   padding: 1rem;
   margin: 1rem auto 6rem;
-  border: 1px solid #e0e1e3;
   border-radius: 15px;
   box-shadow: 15px 15px 30px 0px rgba(13, 39, 80, 0.16),
     -20px -20px 30px 0px #ffffff;
@@ -130,7 +129,6 @@
   min-height: 400px;
   border-radius: 13px;
   padding: 1rem;
-
   box-shadow: inset -18px -18px 28px 0px rgba(255, 255, 255, 0.64),
     inset 13px 13px 20px 0px rgba(13, 39, 80, 0.16);
 }

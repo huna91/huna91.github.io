@@ -61,16 +61,16 @@
   padding: 0;
   margin: 0;
   display: flex;
-  width: auto;
-  height: 120px;
+  width: 35.8rem;
+  height: 6rem;
   justify-content: center;
   align-items: center;
 }
 
 .contact_listItem {
   margin: 0 1.2rem 0 1.2rem;
-  width: 80px;
-  height: 80px;
+  width: 4.5rem;
+  height: 4.5rem;
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -79,9 +79,10 @@
     inset 7px 7px 15px 0px rgba(13, 39, 80, 0.16);
   /* border: 1px solid orange; */
 }
+
 .contact_image {
-  max-width: 50px;
-  max-height: 50px;
+  max-width: 2.8rem;
+  max-height: 2.8rem;
   object-fit: contain;
   margin: 10px;
 }
@@ -109,6 +110,7 @@
 
 /* .contents_list {
   height: 228px;
+  border: 1px solid blue;
   list-style: none;
   padding: 20px;
   margin: 0;
@@ -157,6 +159,12 @@
   box-shadow: inset -10px -10px 18px 0px rgba(255, 255, 255, 0.64),
     inset 7px 7px 15px 0px rgba(13, 39, 80, 0.16);
 }
+.contents_left_btn:active,
+.contents_right_btn:active {
+  font-size: large;
+  box-shadow: inset -10px -10px 18px 0px rgb(255, 0, 0),
+    inset 7px 7px 15px 0px rgb(255, 0, 0);
+}
 
 .contents_right_btn {
   transition: 0.5s;
@@ -184,11 +192,14 @@
 
 .contents_link {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
+  color: black;
+  /* border: 1px solid red; */
+  width: 100%;
 }
 .contents_listImage {
-  width: 150px;
-  height: 150px;
+  width: 8.5rem;
+  height: 8.5rem;
   border-radius: 8px;
   margin-right: 1rem;
 }

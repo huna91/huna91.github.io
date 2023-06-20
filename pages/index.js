@@ -30,6 +30,7 @@ export default function Home({ allPostsData }) {
       default:
         break;
     }
+    console.log(page);
   };
   return (
     <Layout home>
@@ -39,8 +40,8 @@ export default function Home({ allPostsData }) {
 
       <section className={utilStyles.headingMd}>
         <p>
-          안녕하세요. 지혜로운 사람이 되고자 하는 웹 개발자 윤하영 입니다. 현재
-          페이지 제작 중 입니다.
+          안녕하세요. 지혜로운 웹 개발자가 되고자 하는 윤하영 입니다.
+          <br /> 현재 페이지 제작 중 입니다.
         </p>
       </section>
       <h2 className={utilStyles.headingLg}>Contact</h2>
@@ -69,7 +70,14 @@ export default function Home({ allPostsData }) {
       </section>
       <h2 className={utilStyles.headingLg}>Contents</h2>
       <section className={utilStyles.section_contents}>
-        <button className={utilStyles.contents_left_btn}>{"<"}</button>
+        <button
+          className={utilStyles.contents_left_btn}
+          onClick={() => {
+            slideHandler("LEFT");
+          }}
+        >
+          {"<"}
+        </button>
         <Contents_ul className={utilStyles.contents_list} page={page}>
           {allPostsData.map(({ id, date, title, image }) => (
             <li className={`${utilStyles.contents_listItem}`} key={id}>
@@ -99,7 +107,7 @@ export default function Home({ allPostsData }) {
         <button
           className={utilStyles.contents_right_btn}
           onClick={() => {
-            slideHandler();
+            slideHandler("RIGHT");
           }}
         >
           {">"}

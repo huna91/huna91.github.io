@@ -25,7 +25,7 @@ export default async function send_kakao(req, res) {
     template_object:
       "{" +
       '"object_type": "text",' +
-      '"text": "안녕하세요! 윤하영 입니다. 연락주셔서 감사합니다. 자세한 대화는 아래 채팅방에서 부탁드려요:)",' +
+      '"text": "안녕하세요! 윤하영 입니다. 연락주셔서 감사합니다. 자세한 대화는 아래 채팅방에서 부탁드려요:) 혹시 연결이 안되신다면 카카오 아이디는 gmyhy 입니다!",' +
       '"link": {' +
       '    "web_url": "https://open.kakao.com/o/swnaoHof",' +
       '    "mobile_web_url": "https://open.kakao.com/o/swnaoHof"' +
