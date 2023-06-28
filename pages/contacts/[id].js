@@ -5,7 +5,7 @@ import Voice from "./Voice";
 import Email from "./Email";
 import Phone from "./Phone";
 import Kakao from "./Kakao";
-import Blockchain from "./Blockchain";
+import Board from "./Board";
 
 export default function Contact() {
   const router = useRouter();
@@ -19,7 +19,7 @@ export default function Contact() {
       {"email" === `${router.query.id}` ? <Email /> : <></>}
       {"phone" === `${router.query.id}` ? <Phone /> : <></>}
       {"kakao" === `${router.query.id}` ? <Kakao /> : <></>}
-      {"blockchain" === `${router.query.id}` ? <Blockchain /> : <></>}
+      {"board" === `${router.query.id}` ? <Board /> : <></>}
     </Layout>
   );
 }

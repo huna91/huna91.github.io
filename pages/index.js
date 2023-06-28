@@ -14,7 +14,7 @@ export default function Home({ allPostsData }) {
     { image: "/icon/icon-email.png", name: "email" },
     { image: "/icon/icon-phone.png", name: "phone" },
     { image: "/icon/icon-kakao.png", name: "kakao" },
-    { image: "/icon/icon-blockchain.png", name: "blockchain" },
+    { image: "/icon/icon-board.png", name: "board" },
   ];
 
   const [page, setPage] = useState(0);
