@@ -1,7 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./board.module.css";
 
 const Board_write = ({ setModal }) => {
+  const init = {
+    title: "",
+    password: "",
+    name: "",
+    phone: "",
+    contents: "",
+  };
+  const [data, setData] = useState(init);
+
+  const changeData = (props) => {
+    console.log(props);
+    // setData(() => {});
+  };
   const closeModal = () => {
     setModal(false);
   };
@@ -13,7 +26,13 @@ const Board_write = ({ setModal }) => {
       </button>
       <div className={styles.board_write_container}>
         <label>제목</label>
-        <input type="text" placeholder="흔적게시판에 보여지는 타이틀 입니다." />
+        <input
+          type="text"
+          placeholder="흔적게시판에 보여지는 타이틀 입니다."
+          onChange={(e) => {
+            changeData(e);
+          }}
+        />
         <label>암호</label>
         <input type="text" placeholder="글을 다시 조회할때 필요합니다." />
         <label>흔적 남기시는 분</label>
