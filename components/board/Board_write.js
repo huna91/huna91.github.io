@@ -13,7 +13,7 @@ const Board_write = ({ setModal }) => {
 
   const changeData = (props) => {
     console.log(props);
-    // setData(() => {});
+    setData((prev) => ({...prev,title:}));
   };
   const closeModal = () => {
     setModal(false);
@@ -34,7 +34,7 @@ const Board_write = ({ setModal }) => {
           }}
         />
         <label>암호</label>
-        <input type="text" placeholder="글을 다시 조회할때 필요합니다." />
+        <input name="title" type="text" placeholder="글을 다시 조회할때 필요합니다." />
         <label>흔적 남기시는 분</label>
         <input type="text" placeholder="성함, 회사명 등 " />
         <label>연락처</label>
