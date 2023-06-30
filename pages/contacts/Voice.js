@@ -154,7 +154,7 @@ const Voice = () => {
             />
             <label>Position</label>
             <Voice_input
-              onBlur={onBlur}
+              // onBlur={onBlur}
               type="text"
               name="position"
               onChange={handleChange}

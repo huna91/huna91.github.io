@@ -6,9 +6,12 @@ import Board_write from "../../components/board/Board_write";
 import Board_open from "../../components/board/Board_open";
 
 const Board = () => {
+  const liRef = useRef();
   const [data, setData] = useState([]);
   const [input, setInput] = useState(false);
   const [open, setOpen] = useState(false);
+  const [opData, setOpData] = useState({ index: 0, data: {} });
+
   const getAllData = async () => {
     const _data = await fetch("../api/board/getAllData")
       .then((res) => res.json())
@@ -19,12 +22,13 @@ const Board = () => {
     getAllData();
   }, []);
 
-  const showModal = (event) => {
-    switch (event) {
+  const showModal = (key, ind, __data) => {
+    switch (key) {
       case "INPUT":
         return setInput(!input);
 
       case "OPEN":
+        setOpData({ index: ind, data: __data });
         return setOpen(!open);
 
       default:
@@ -45,7 +49,7 @@ const Board = () => {
   return (
     <div className={utilStyles.board_wrap}>
       {input && <Board_write setModal={setInput} />}
-      {open && <Board_open setModal={setOpen} />}
+      {open && <Board_open setModal={setOpen} data={opData} />}
       <div>
         비밀스런 흔적 남기기
         <button
@@ -53,7 +57,7 @@ const Board = () => {
             showModal("INPUT");
           }}
         >
-          흔적
+          글쓰기
         </button>
       </div>
 
@@ -61,7 +65,13 @@ const Board = () => {
         <ul className={utilStyles.board_list}>
           {data.map((val, ind) => {
             return (
-              <li className={utilStyles.board_list_item}>
+              <li
+                className={utilStyles.board_list_item}
+                key={ind}
+                onClick={() => {
+                  showModal("OPEN", ind, val);
+                }}
+              >
                 <div className={utilStyles.ball}></div>
                 <div className={utilStyles.board_list_item_index}>
                   {ind + 1}
