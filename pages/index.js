@@ -78,7 +78,7 @@ export default function Home({ allPostsData }) {
         >
           {"<"}
         </button>
-        <Contents_ul className={utilStyles.contents_list} page={page}>
+        <Contents_ul page={page}>
           {allPostsData.map(({ id, date, title, image }) => (
             <li className={`${utilStyles.contents_listItem}`} key={id}>
               <Link
