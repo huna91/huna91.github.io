@@ -1,1 +1,7 @@
-[{"title":"test1","password":"aa","name":"qq","phone":"12","contents":"123"},{"title":"444","password":"44","name":"44","phone":"4","contents":"44"},{"title":"55","password":"55","name":"55","phone":"55","contents":"55"},{"title":"33","password":"33","name":"33","phone":"33","contents":"33"}]
+{
+  "title": "test1",
+  "password": "aa",
+  "name": "qq",
+  "phone": "12",
+  "contents": "123"
+}

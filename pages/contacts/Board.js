@@ -13,9 +13,9 @@ const Board = () => {
   const [opData, setOpData] = useState({ index: 0, data: {} });
 
   const getAllData = async () => {
-    const _data = await fetch("../api/board/getAllData")
-      .then((res) => res.json())
-      .then((res) => JSON.parse(res));
+    const _data = await fetch("../api/board/getAllData").then((res) =>
+      res.json()
+    );
     setData(_data);
   };
   useEffect(() => {

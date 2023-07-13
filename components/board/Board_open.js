@@ -25,11 +25,27 @@ const Board_open = ({ setModal, data }) => {
   };
 
   const [update, setUpdate] = useState(false);
-  const [preData, setPreData] = useState(data.data);
+  const [preData, setPreData] = useState(data);
   const changeData = ({ target }) => {
-    setPreData((prev) => ({ ...prev, [target.name]: target.value }));
+    setPreData((prev) => ({
+      ...prev,
+      [target.name]: target.value,
+    }));
     console.log(preData);
   };
+
+  const update_end_btn = async () => {
+    await fetch("../api/board/updateData", {
+      method: "POST",
+      body: JSON.stringify(preData),
+    }).then((e) => {
+      if (e.ok) {
+        setModal(false);
+        return alert("수정 완료");
+      }
+    });
+  };
+
   useEffect(() => {
     const handler = () => {
       // mousedown 이벤트가 발생한 영역이 모달창이 아닐 때, 모달창 제거 처리
@@ -125,7 +141,13 @@ const Board_open = ({ setModal, data }) => {
           >
             취소
           </button>
-          <button>수정완료</button>
+          <button
+            onClick={() => {
+              update_end_btn();
+            }}
+          >
+            수정완료
+          </button>
         </div>
       ) : (
         <div>
